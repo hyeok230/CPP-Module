@@ -1,11 +1,10 @@
-NAME	= Zombies
+NAME	= weapon
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f
 
 SRCS	= main.cpp\
-			Zombie.cpp\
-			zombieHorde.cpp\
+
 
 OBJS	= $(SRCS:.cpp=.o)
 

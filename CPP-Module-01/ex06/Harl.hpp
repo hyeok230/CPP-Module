@@ -1,5 +1,8 @@
-#include <iostream>
-#include <algorithm>
+#ifndef HARL_HPP
+# define HARL_HPP
+
+# include <iostream>
+# include <algorithm>
 
 class Harl
 {
@@ -15,3 +18,5 @@ class Harl
 		void error(void);
 		int returnIndex(std::string level, std::string levels[4]);
 };
+
+#endif

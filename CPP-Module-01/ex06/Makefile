@@ -1,10 +1,11 @@
-NAME	= megaphone
-
+NAME	= harlFilter
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f
 
-SRCS	= megaphone.cpp
+SRCS	= main.cpp\
+			Harl.cpp\
+
 OBJS	= $(SRCS:.cpp=.o)
 
 all: $(NAME)

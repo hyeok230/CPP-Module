@@ -24,6 +24,16 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
+ClapTrap& ClapTrap::operator=(ClapTrap const &src)
+{
+	_name = src._name;
+	_hitPoints = src._hitPoints;
+	_energyPoints = src._energyPoints;
+	_attackDamage = src._attackDamage;
+	std::cout << "ClapTrap operator = (" << _name << ") called" << std::endl;
+	return (*this);
+}
+
 void ClapTrap::attack(const std::string& target)
 {
 	if (_energyPoints == 0)

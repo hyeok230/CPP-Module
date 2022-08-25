@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src)
 {
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap Copy constructor called" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap const &src)

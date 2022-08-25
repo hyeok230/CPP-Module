@@ -1,4 +1,4 @@
-NAME	= fragtrap
+NAME	= diamondtrap
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f
@@ -6,7 +6,8 @@ RM		= rm -f
 SRCS	= main.cpp\
 			ClapTrap.cpp\
 			ScavTrap.cpp\
-			FragTrap.cpp
+			FragTrap.cpp\
+			DiamondTrap.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

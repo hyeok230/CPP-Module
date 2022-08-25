@@ -18,7 +18,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src)
 {
-	std::cout << "FragTrap Copy assignment operator called" << std::endl;
+	std::cout << "FragTrap Copy constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap(void)

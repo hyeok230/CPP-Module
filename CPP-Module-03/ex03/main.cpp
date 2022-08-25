@@ -1,27 +1,57 @@
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
-	FragTrap	a("a");
-	ScavTrap	b("b");
+	DiamondTrap	a("A");
 
 	std::cout << std::endl;
-	a.attack("b");
-	b.takeDamage(30);
+	a.whoAmI();
 	std::cout << std::endl;
-	b.attack("a");
-	a.takeDamage(20);
+	
+	{
+		DiamondTrap b("B");
+		DiamondTrap c("C");
+
+
+		std::cout << std::endl;
+		
+		b.whoAmI();
+		c.whoAmI();		
+		c.highFivesGuys();
+		
+		std::cout << std::endl;
+		
+		b.attack("C");
+		c.takeDamage(30);
+		
+		std::cout << std::endl;
+		
+		b.attack("C");
+		c.takeDamage(30);
+		
+		std::cout << std::endl;
+		
+		b.guardGate();
+		
+		std::cout << std::endl;
+	}
+
 	std::cout << std::endl;
-	a.attack("b");
-	b.takeDamage(30);
+	
+	DiamondTrap d;
+	
 	std::cout << std::endl;
-	b.attack("a");
-	a.takeDamage(20);
+	
+	d.whoAmI();
+	
 	std::cout << std::endl;
-	b.guardGate();
+
+	d = a;
+	
 	std::cout << std::endl;
-	a.highFivesGuys();
+	
+	d.whoAmI();
+	
 	std::cout << std::endl;
 	return (0);
 }

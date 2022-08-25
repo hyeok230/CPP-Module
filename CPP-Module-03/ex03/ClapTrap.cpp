@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(ClapTrap const & src)
 	_hitPoints = src._hitPoints;
 	_energyPoints = src._energyPoints;
 	_attackDamage = src._attackDamage;
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)

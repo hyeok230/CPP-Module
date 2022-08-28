@@ -10,8 +10,7 @@ class Dog: public Animal
 		~Dog(void);
 
 		Dog& operator=(Dog const & src);
-		void makeSound(void);
-		std::string	getType(void);
+		void makeSound(void) const;
 };
 
 #endif

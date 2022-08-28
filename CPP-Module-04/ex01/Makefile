@@ -1,4 +1,4 @@
-NAME	= polymorphism
+NAME	= brain
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f
@@ -7,8 +7,7 @@ SRCS	= main.cpp\
 			Animal.cpp\
 			Cat.cpp\
 			Dog.cpp\
-			WrongAnimal.cpp\
-			WrongCat.cpp
+			Brain.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

@@ -39,7 +39,7 @@ int		Form::getExecuteGrade(void) const
 	return (executeGrade);
 }
 
-void	Form::besigned(const Bureaucrat& B)
+void	Form::beSigned(const Bureaucrat& B)
 {
 	if (signGrade < B.getGrade())
 		throw GradeTooLowException();

@@ -19,20 +19,20 @@ int main()
 		std::cout << robotomy << std::endl;
 		std::cout << pardon << std::endl;
 
-		// myTree.beSigned(human);
-		// robotomy.beSigned(human);
+		myTree.beSigned(human);
+		robotomy.beSigned(human);
 		pardon.beSigned(human);
 
-		// human.signForm(myTree);
-		// human.signForm(robotomy);
+		human.signForm(myTree);
+		human.signForm(robotomy);
 		human.signForm(pardon);
 
-		// myTree.execute(human);
-		// robotomy.execute(human);
+		myTree.execute(human);
+		robotomy.execute(human);
 		pardon.execute(human);
 
-		// human.executeForm(myTree);
-		// human.executeForm(robotomy);
+		human.executeForm(myTree);
+		human.executeForm(robotomy);
 		human.executeForm(pardon);
 	}
 	catch (std::exception & e)

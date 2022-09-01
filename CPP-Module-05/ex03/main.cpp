@@ -3,42 +3,46 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-	try
+		try
 	{
-		Bureaucrat human("junylee", 4);
-		ShrubberyCreationForm myTree("tree");
-		RobotomyRequestForm robotomy("robot");
-		PresidentialPardonForm pardon("pardon");
+		Bureaucrat junylee("junylee", 1);
+		Intern intern;
+		Form *form;
 
-		std::cout << human << std::endl;
+		form = intern.makeForm("ShrubberyCreation", "tree");
+		junylee.signForm(*form);
+		junylee.executeForm(*form);
+		delete form;
 
-		std::cout << myTree << std::endl;
-		std::cout << robotomy << std::endl;
-		std::cout << pardon << std::endl;
+		std::cout << std::endl;
 
-		// myTree.beSigned(human);
-		// robotomy.beSigned(human);
-		pardon.beSigned(human);
+		form = intern.makeForm("RobotomyRequestForm", "robot");
+		junylee.signForm(*form);
+		junylee.executeForm(*form);
+		delete form;
 
-		// human.signForm(myTree);
-		// human.signForm(robotomy);
-		human.signForm(pardon);
+		std::cout << std::endl;
 
-		// myTree.execute(human);
-		// robotomy.execute(human);
-		pardon.execute(human);
+		form = intern.makeForm("PresidentialPardonForm", "pardon");
+		junylee.signForm(*form);
+		junylee.executeForm(*form);
+		delete form;
 
-		// human.executeForm(myTree);
-		// human.executeForm(robotomy);
-		human.executeForm(pardon);
+		std::cout << std::endl;
+
+		form = intern.makeForm("noName", "test");
+		junylee.signForm(*form);
+		junylee.executeForm(*form);
+		delete form;
 	}
-	catch (std::exception & e)
+	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
-	return (0);
+	return 0;
 }

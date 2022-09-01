@@ -1,4 +1,4 @@
-NAME	= execute
+NAME	= intern
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f
@@ -8,7 +8,8 @@ SRCS	= main.cpp\
 			Form.cpp\
 			PresidentialPardonForm.cpp\
 			RobotomyRequestForm.cpp\
-			ShrubberyCreationForm.cpp
+			ShrubberyCreationForm.cpp\
+			Intern.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

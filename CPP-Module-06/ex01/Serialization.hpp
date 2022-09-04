@@ -5,7 +5,7 @@
 
 typedef struct
 {
-	int age;
+	int weight;
 	std::string name;
 } Data;
 

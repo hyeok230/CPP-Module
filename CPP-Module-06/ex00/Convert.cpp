@@ -109,8 +109,6 @@ std::ostream& operator<<(std::ostream & os, const Convert & C)
 	{
 		float f = C.toFloat();
 
-		if (std::isnan(f) && std::signbit(f))
-			os << "-";
 		os << f;
 		if (!std::isnan(f) && f - (int)f == 0)
 			os << ".0";
@@ -126,8 +124,6 @@ std::ostream& operator<<(std::ostream & os, const Convert & C)
 	{
 		double d = C.toDouble();
 
-		if (std::isnan(d) && std::signbit(d))
-			os << "-";
 		os << d;
 		if (!std::isnan(d) && d - (int)d == 0)
 			os << ".0";

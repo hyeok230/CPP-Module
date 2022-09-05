@@ -1,4 +1,4 @@
-NAME	= realtype
+NAME	= whatever
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f

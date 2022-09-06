@@ -1,9 +1,10 @@
-NAME	= realtype
+NAME	= array
 CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 RM		= rm -f
 
-SRCS	= main.cpp
+SRCS	= main.cpp\
+			# test.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

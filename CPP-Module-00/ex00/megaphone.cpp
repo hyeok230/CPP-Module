@@ -2,8 +2,6 @@
 
 int main(int argc, char **argv)
 {
-	int j;
-
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
@@ -12,12 +10,9 @@ int main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			j = 0;
-			while (argv[i][j])
-			{
-				std::cout << static_cast<char>(std::toupper(argv[i][j]));
-				j++;
-			}
+			std::string str = argv[i];
+			std::transform(str.begin(), str.end(), str.begin(), toupper);
+			std::cout << str;
 		}
 	}
 	std::cout << std::endl;

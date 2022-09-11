@@ -16,7 +16,7 @@ Account::Account(int initial_deposit)
 	_totalAmount += _amount;
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex;
-	std::cout << ";amount" << _amount;
+	std::cout << ";amount:" << _amount;
 	std::cout << ";created" << std::endl;
 }
 

@@ -1,46 +1,74 @@
 #include "Contact.hpp"
 
 void	Contact::InputContact() {
+	int i = 0;
 	std::string input;
 
-	std::cout << "| Enter contact info |" << std::endl;
 	std::cin.ignore();
-	input = "";
-	while (input == "") 
+	std::cout << "1. First name : ";
+	while (std::getline(std::cin, input))
 	{
-		std::cout << "first name : ";
-		std::getline(std::cin, input);
+		if (i == 0)
+		{
+			if (input == "")
+			{
+				std::cout << "Error: input must not be empty." << std::endl;
+				std::cout << "1. First name : ";
+				continue;
+			}
+			this->first_name = input;
+			i++;
+			std::cout << "2. Last name: ";
+		}
+		else if (i == 1)
+		{
+			if (input == "")
+			{
+				std::cout << "Error: input must not be empty." << std::endl;
+				std::cout << "2. Last name: ";
+				continue;
+			}
+			this->last_name = input;
+			i++;
+			std::cout << "3. Nickname : ";
+		}
+		else if (i == 2)
+		{
+			if (input == "")
+			{
+				std::cout << "Error: input must not be empty." << std::endl;
+				std::cout << "3. Nickname : ";
+				continue;
+			}
+			this->nickname = input;
+			i++;
+			std::cout << "4. Phone number : ";
+		}
+		else if (i == 3)
+		{
+			if (input == "")
+			{
+				std::cout << "Error: input must not be empty." << std::endl;
+				std::cout << "4. Phone number : ";
+				continue;
+			}
+			this->phone_number = input;
+			i++;
+			std::cout << "5. Darkest secret : ";
+		}
+		else if (i == 4)
+		{
+			if (input == "")
+			{
+				std::cout << "Error: input must not be empty." << std::endl;
+				std::cout << "5. Darkest secret : ";
+				continue;
+			}
+			this->darkest_secret = input;
+			i++;
+			break;
+		}
 	}
-	this->first_name = input;
-	input = "";
-	while (input == "") 
-	{
-		std::cout << "last name : ";
-		std::getline(std::cin, input);
-	}
-	this->last_name = input;
-	input = "";
-	while (input == "") 
-	{
-		std::cout << "nickname : ";
-		std::getline(std::cin, input);
-	}
-	this->nickname = input;
-	input = "";
-	while (input == "") 
-	{
-		std::cout << "phone number : ";
-		std::getline(std::cin, input);
-	}
-	this->phone_number = input;
-	input = "";
-	while (input == "") 
-	{
-		std::cout << "darkest secret : ";
-		std::getline(std::cin, input);
-	}
-	this->darkest_secret = input;
-	std::cout << "New contact created" << std::endl;
 }
 
 void	Contact::PrintContact() {

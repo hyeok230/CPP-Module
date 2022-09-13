@@ -7,11 +7,15 @@
 
 class Convert
 {
+	private:
+		Convert(void);
+		std::string value;
+
 	public:
 		Convert(const std::string &value);
+		Convert(const Convert & src);
+		Convert& operator=(const Convert & src);
 		~Convert(void);
-		
-		std::string const &getValue(void) const;
 		
 		char toChar(void) const;
 		int toInt(void) const;
@@ -33,12 +37,6 @@ class Convert
 				return ("Non displayable");
 			}
 		};
-	private:
-		Convert(void);
-		Convert(const Convert & src);
-		Convert& operator=(const Convert & src);
-
-		std::string value;
 };
 
 std::ostream& operator<<(std::ostream& os, const Convert& C);

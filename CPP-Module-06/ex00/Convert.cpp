@@ -2,83 +2,84 @@
 
 Convert::Convert(const std::string &value) : value(value) {}
 
+Convert::Convert(const Convert & src) : value(src.value) {}
+
 Convert::~Convert(void) {}
 
-std::string const &Convert::getValue(void) const
+Convert& Convert::operator=(const Convert & src)
 {
-	return (value);
+	value = src.value;
+	return (*this);
 }
 		
 char Convert::toChar(void) const
 {
-	int c;
+	int n;
+	const char *str = value.c_str();
+	char *stopstr = NULL;
 
-	try
+	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
 	{
-		c = std::stoi(value);
-		if (c < 0 || c > 255)
-		{
-			throw Impossible();
-		}
-	}	
-	catch (...)
+		return value[0];
+	}
+
+	n = static_cast<int>(strtod(str, &stopstr));
+	if (n != 0 && !isinf(n) && !isnan(n) && n >= 0 && n <= 255)
 	{
+		if (!std::isprint(n))
+			throw NonDisplayable();
+		return static_cast<char>(n);
+	}
+	else
 		throw Impossible();
-	}
-	if (!std::isprint(c))
-	{
-		throw NonDisplayable();
-	}
-
-	return (static_cast<char>(c));
 }
 
 int Convert::toInt(void) const
 {
-	int n;
+	double n;
 
-	try
-	{
-		n = std::stoi(value);
-	}	
-	catch (...)
-	{
+	const char *str = value.c_str();
+	char *stopstr = NULL;
+
+	if (value.length() == 1 && value[0] == '0')
+		return 0;
+	n = strtod(str, &stopstr);
+	if (n != 0 && !isinf(n) && !isnan(n))
+		return static_cast<int>(n);
+	else
 		throw Impossible();
-	}
-
-	return (n);
 }
 
 float Convert::toFloat(void) const
 {
-	float f;
+	float n;
 
-	try
-	{
-		f = std::stof(value);
-	}	
-	catch (...)
-	{
+	const char *str = value.c_str();
+	char *stopstr = NULL;
+
+	if (value.length() == 1 && value[0] == '0')
+		return 0;
+	n = strtod(str, &stopstr);
+	if (n != 0)
+		return static_cast<float>(n);
+	else
 		throw Impossible();
-	}
-
-	return (f);
 }
 
 double Convert::toDouble(void) const
 {
-	double d;
+	double n;
 
-	try
-	{
-		d = std::stod(value);
-	}	
-	catch (...)
-	{
+	const char *str = value.c_str();
+	char *stopstr = NULL;
+
+	if (value.length() == 1 && value[0] == '0')
+		return 0;
+	n = strtod(str, &stopstr);
+	if (n != 0)
+		return n;
+	else
 		throw Impossible();
-	}
-
-	return (d);
 }
 
 std::ostream& operator<<(std::ostream & os, const Convert & C)
@@ -110,7 +111,7 @@ std::ostream& operator<<(std::ostream & os, const Convert & C)
 		float f = C.toFloat();
 
 		os << f;
-		if (!std::isnan(f) && f - (int)f == 0)
+		if (f - (int)f == 0)
 			os << ".0";
 		os << "f" << std::endl;
 	}
@@ -125,7 +126,7 @@ std::ostream& operator<<(std::ostream & os, const Convert & C)
 		double d = C.toDouble();
 
 		os << d;
-		if (!std::isnan(d) && d - (int)d == 0)
+		if (d - (int)d == 0)
 			os << ".0";
 		os << std::endl;
 	}

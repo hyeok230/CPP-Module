@@ -45,14 +45,14 @@ class Array
             delete[] array;
         };
 
-        T operator[](int i) const
+        T& operator[](int i) const
         {
             if (i < 0 || i >= static_cast<int>(this->size()))
                 throw OutOfBounds();
             return (array[i]);
         };
 
-        T &operator[](int i)
+        T& operator[](int i)
         {
             if (i < 0 || i >= static_cast<int>(this->size()))
                 throw OutOfBounds();

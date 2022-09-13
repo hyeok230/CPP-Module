@@ -22,9 +22,8 @@ char Convert::toChar(void) const
 	{
 		return value[0];
 	}
-
 	n = static_cast<int>(strtod(str, &stopstr));
-	if (n != 0 && !isinf(n) && !isnan(n) && n >= 0 && n <= 255)
+	if (str != stopstr && !isinf(n) && !isnan(n) && n >= 0 && n <= 255)
 	{
 		if (!std::isprint(n))
 			throw NonDisplayable();
@@ -40,11 +39,16 @@ int Convert::toInt(void) const
 
 	const char *str = value.c_str();
 	char *stopstr = NULL;
+	
+	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
+	{
+		return value[0];
+	}
 
-	if (value.length() == 1 && value[0] == '0')
-		return 0;
 	n = strtod(str, &stopstr);
-	if (n != 0 && !isinf(n) && !isnan(n))
+	if (n > 2147483647 || n < -2147483648)
+		throw Impossible();
+	if (str != stopstr && !isinf(n) && !isnan(n))
 		return static_cast<int>(n);
 	else
 		throw Impossible();
@@ -57,10 +61,13 @@ float Convert::toFloat(void) const
 	const char *str = value.c_str();
 	char *stopstr = NULL;
 
-	if (value.length() == 1 && value[0] == '0')
-		return 0;
+	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
+	{
+		return value[0];
+	}
+
 	n = strtod(str, &stopstr);
-	if (n != 0)
+	if (str != stopstr)
 		return static_cast<float>(n);
 	else
 		throw Impossible();
@@ -73,10 +80,13 @@ double Convert::toDouble(void) const
 	const char *str = value.c_str();
 	char *stopstr = NULL;
 
-	if (value.length() == 1 && value[0] == '0')
-		return 0;
+	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
+	{
+		return value[0];
+	}
+
 	n = strtod(str, &stopstr);
-	if (n != 0)
+	if (str != stopstr)
 		return n;
 	else
 		throw Impossible();

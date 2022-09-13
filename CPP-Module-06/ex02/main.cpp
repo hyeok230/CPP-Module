@@ -49,7 +49,8 @@ int main()
 		std::cout << "===============test" << i + 1 << "===============" << std::endl;
 		identify(p);
 		identify(*p);
-	}
 
+		delete p;
+	}
 	return 0;
 }

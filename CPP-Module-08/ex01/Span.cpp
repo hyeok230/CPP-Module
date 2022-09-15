@@ -1,7 +1,5 @@
 #include "Span.hpp"
 
-Span::Span(void) : size(0) {}
-
 Span::Span(unsigned int N) : size(N) {}
 
 Span::Span(const Span & src)

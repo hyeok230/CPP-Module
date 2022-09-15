@@ -12,8 +12,8 @@ class Span
 		unsigned int size;
 		std::vector<int> v;
 
-	public:
 		Span(void);
+	public:
 		Span(unsigned int N);
 		~Span(void);
 		Span(const Span & src);

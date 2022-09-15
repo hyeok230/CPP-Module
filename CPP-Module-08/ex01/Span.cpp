@@ -28,7 +28,7 @@ long Span::shortestSpan(void)
 {
 	long result;
 
-	if (v.size() <= 2)
+	if (v.size() < 2)
 		throw NotEnoughElements();
 
 	std::vector<int> copy = v;
@@ -55,7 +55,7 @@ long Span::longestSpan(void)
 {
 	long result;
 
-	if (v.size() <= 2)
+	if (v.size() < 2)
 		throw NotEnoughElements();
 
 	std::vector<int> copy = v;

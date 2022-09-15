@@ -20,7 +20,7 @@ char Convert::toChar(void) const
 
 	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
 	{
-		return value[0];
+		return static_cast<char>(value[0]);
 	}
 	n = static_cast<int>(strtod(str, &stopstr));
 	if (str != stopstr && !isinf(n) && !isnan(n) && n >= 0 && n <= 255)
@@ -42,7 +42,7 @@ int Convert::toInt(void) const
 	
 	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
 	{
-		return value[0];
+		return static_cast<int>(value[0]);
 	}
 
 	n = strtod(str, &stopstr);
@@ -63,7 +63,7 @@ float Convert::toFloat(void) const
 
 	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
 	{
-		return value[0];
+		return static_cast<float>(value[0]);
 	}
 
 	n = strtod(str, &stopstr);
@@ -82,7 +82,7 @@ double Convert::toDouble(void) const
 
 	if (value.length() == 1 && (value[0] < '0' || value[0] > '9'))
 	{
-		return value[0];
+		return static_cast<double>(value[0]);
 	}
 
 	n = strtod(str, &stopstr);

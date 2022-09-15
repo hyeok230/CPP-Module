@@ -6,10 +6,7 @@
 class Base
 {
 	public:
-		virtual ~Base(void)
-		{
-			std::cout << "Base destructor called!" << std::endl;
-		}
+		virtual ~Base(void) {}
 };
 
 #endif
